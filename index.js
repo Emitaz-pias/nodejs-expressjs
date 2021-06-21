@@ -36,8 +36,11 @@ app.get("/user/:id", (req, res) => {
   res.send(user);
 });
 // post data to backend
-app.post("/addUser", cors(), (req, res) => {
+app.post("/addUser", (req, res) => {
+  const user = req.body;
+  user.id = 1;
   console.log("data recieved", req.body);
+  res.send(user);
 });
 
 app.listen(8080, () => console.log("app listening  to port 8080"));
